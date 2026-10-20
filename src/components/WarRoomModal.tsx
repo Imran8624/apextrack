@@ -95,7 +95,7 @@ export const WarRoomModal: React.FC<WarRoomModalProps> = ({
         {displayParticipants.map((participant, idx) => (
           <div
             key={participant.id}
-            className={`relative rounded-2xl overflow-hidden border bg-slate-900 flex flex-col justify-between p-4 shadow-2xl min-h-[260px] transition-all ${
+            className={`relative rounded-2xl overflow-hidden border bg-slate-900 flex flex-col justify-between p-4 shadow-2xl min-h-65 transition-all ${
               participant.isScreenSharing
                 ? 'col-span-1 md:col-span-2 border-indigo-500 shadow-indigo-500/20'
                 : 'border-slate-800 hover:border-slate-700'

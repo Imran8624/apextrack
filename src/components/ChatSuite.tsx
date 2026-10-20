@@ -106,13 +106,13 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
   const allDatabaseMessages = Object.values(messages).flat();
 
   return (
-    <div className="bg-white border border-slate-200 rounded-xl shadow-xs h-[620px] flex overflow-hidden w-full min-w-0">
+    <div className="bg-white border border-slate-200 rounded-xl shadow-xs h-155 flex overflow-hidden w-full min-w-0">
       {/* Sidebar: Topic Channels & Pinned Contacts */}
-      <div className="w-60 sm:w-68 bg-slate-50 border-r border-slate-200 flex flex-col justify-between p-3 flex-shrink-0 min-w-0">
+      <div className="w-60 sm:w-68 bg-slate-50 border-r border-slate-200 flex flex-col justify-between p-3 shrink-0 min-w-0">
         <div className="space-y-3 overflow-y-auto pr-1 min-w-0">
           {/* Working Project Context Tag */}
           <div className="bg-white border border-slate-200 p-2 rounded-lg flex items-center space-x-2 min-w-0 shadow-xs">
-            <FolderGit2 className="w-3.5 h-3.5 text-indigo-600 flex-shrink-0" />
+            <FolderGit2 className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
             <div className="truncate text-xs min-w-0">
               <span className="text-[9px] text-slate-400 uppercase font-semibold block">Current Project</span>
               <span className="font-semibold text-slate-800 truncate block text-xs">{activeProject.name}</span>
@@ -121,7 +121,7 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
 
           {/* Active Sender Profile Card */}
           <div className="bg-white border border-slate-200 p-2 rounded-lg text-xs flex items-center space-x-2 min-w-0 shadow-xs">
-            <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-200 flex items-center justify-center font-bold text-indigo-700 text-xs flex-shrink-0">
+            <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-200 flex items-center justify-center font-bold text-indigo-700 text-xs shrink-0">
               {currentUser?.name.charAt(0)}
             </div>
             <div className="truncate min-w-0">
@@ -146,7 +146,7 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
             </button>
           ) : (
             <div className="bg-white p-1.5 rounded-lg border border-slate-200 text-[10px] text-slate-500 flex items-center space-x-1.5">
-              <Lock className="w-3 h-3 text-slate-400 flex-shrink-0" />
+              <Lock className="w-3 h-3 text-slate-400 shrink-0" />
               <span>Audit Vault: Restricted</span>
             </div>
           )}
@@ -178,9 +178,9 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
                 >
                   <div className="flex items-center space-x-2 truncate">
                     {channel.isEmergency ? (
-                      <ShieldAlert className="w-3.5 h-3.5 text-rose-600 flex-shrink-0" />
+                      <ShieldAlert className="w-3.5 h-3.5 text-rose-600 shrink-0" />
                     ) : (
-                      <Hash className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+                      <Hash className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                     )}
                     <span className="truncate">{channel.name}</span>
                   </div>
@@ -230,7 +230,7 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
                           }}
                           className="flex items-center space-x-2 truncate flex-1 text-left"
                         >
-                          <div className="relative flex-shrink-0">
+                          <div className="relative shrink-0">
                             <div className="w-6 h-6 rounded-md bg-amber-50 flex items-center justify-center font-bold text-amber-700 text-[10px] border border-amber-200">
                               {user.name.charAt(0)}
                             </div>
@@ -294,7 +294,7 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
                       }}
                       className="flex items-center space-x-2 truncate flex-1 text-left"
                     >
-                      <div className="w-6 h-6 rounded-md bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-[10px] flex-shrink-0">
+                      <div className="w-6 h-6 rounded-md bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-[10px] shrink-0">
                         {user.name.charAt(0)}
                       </div>
                       <div className="truncate">
@@ -381,7 +381,7 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
                     <span className="text-emerald-600 font-bold shrink-0 ml-2">200 OK (0.4ms)</span>
                   </div>
 
-                  <div className="bg-white border border-slate-200 rounded-lg overflow-x-auto max-h-[350px] shadow-xs">
+                  <div className="bg-white border border-slate-200 rounded-lg overflow-x-auto max-h-87.5 shadow-xs">
                     <table className="w-full text-left text-xs font-mono text-slate-700">
                       <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase text-[10px]">
                         <tr>
@@ -417,7 +417,7 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
                     <span className="text-emerald-600 font-bold shrink-0 ml-2">200 OK (0.2ms)</span>
                   </div>
 
-                  <div className="bg-white border border-slate-200 rounded-lg overflow-x-auto max-h-[350px] shadow-xs">
+                  <div className="bg-white border border-slate-200 rounded-lg overflow-x-auto max-h-87.5 shadow-xs">
                     <table className="w-full text-left text-xs font-mono text-slate-700">
                       <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase text-[10px]">
                         <tr>
@@ -529,7 +529,7 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
                       <div key={pm.id} className="bg-white border border-slate-200 p-1.5 rounded-md text-xs flex justify-between items-start min-w-0 shadow-xs">
                         <div className="min-w-0">
                           <span className="font-semibold text-slate-900 mr-1.5 text-xs">{pm.senderName}:</span>
-                          <span className="text-slate-700 text-xs break-words">{pm.content}</span>
+                          <span className="text-slate-700 text-xs wrap-break-word">{pm.content}</span>
                         </div>
                         <span className="text-[9px] text-slate-400 ml-2 whitespace-nowrap shrink-0">{pm.sentAt}</span>
                       </div>
@@ -552,7 +552,7 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
                       : 'bg-white border-slate-200'
                   }`}
                 >
-                  <div className="w-6 h-6 rounded-md bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-[10px] flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-md bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
                     {msg.senderName.charAt(0)}
                   </div>
 
@@ -576,12 +576,12 @@ export const ChatSuite: React.FC<ChatSuiteProps> = ({
                       )}
                     </div>
 
-                    <p className="text-xs text-slate-800 leading-relaxed break-words">{msg.content}</p>
+                    <p className="text-xs text-slate-800 leading-relaxed wrap-break-word">{msg.content}</p>
 
                     {msg.fileAttachment && (
                       <div className="mt-1 inline-flex items-center space-x-1.5 px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[11px] border border-indigo-200 font-medium">
                         <Paperclip className="w-3 h-3" />
-                        <span className="break-words">{msg.fileAttachment}</span>
+                        <span className="wrap-break-word">{msg.fileAttachment}</span>
                       </div>
                     )}
                   </div>

@@ -424,7 +424,7 @@ export const ClientCRMHub: React.FC<ClientCRMHubProps> = ({
                     </span>
                     <span className="font-semibold text-slate-800">{client.nextSyncDate}</span>
                   </div>
-                  <p className="text-slate-700 text-[11px] pt-0.5 break-words">
+                  <p className="text-slate-700 text-[11px] pt-0.5 wrap-break-word">
                     &ldquo;{client.lastTouchpointSummary}&rdquo;
                   </p>
                 </div>
@@ -524,7 +524,7 @@ export const ClientCRMHub: React.FC<ClientCRMHubProps> = ({
                   )}
                 </div>
 
-                <p className="text-xs text-slate-700 leading-relaxed bg-slate-50 p-2.5 rounded-lg border border-slate-200 break-words">
+                <p className="text-xs text-slate-700 leading-relaxed bg-slate-50 p-2.5 rounded-lg border border-slate-200 wrap-break-word">
                   {req.description}
                 </p>
 
@@ -536,9 +536,9 @@ export const ClientCRMHub: React.FC<ClientCRMHubProps> = ({
                     </span>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-1 text-xs">
                       {req.acceptanceCriteria.map((crit, idx) => (
-                        <li key={idx} className="flex items-start space-x-1.5 text-slate-700 break-words">
+                        <li key={idx} className="flex items-start space-x-1.5 text-slate-700 wrap-break-word">
                           <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 shrink-0 mt-0.5" />
-                          <span className="break-words">{crit}</span>
+                          <span className="wrap-break-word">{crit}</span>
                         </li>
                       ))}
                     </ul>

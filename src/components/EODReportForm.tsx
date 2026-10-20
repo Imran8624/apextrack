@@ -193,7 +193,7 @@ export const EODReportForm: React.FC<EODReportFormProps> = ({
 
       {successMessage && (
         <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium flex items-center space-x-2">
-          <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-emerald-600" />
+          <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
           <span>{successMessage}</span>
         </div>
       )}
@@ -292,7 +292,7 @@ export const EODReportForm: React.FC<EODReportFormProps> = ({
           {/* Blocker Severity & Details */}
           <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-3">
             <div>
-              <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-700 mb-1.5 flex items-center space-x-1.5">
+              <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-700 mb-1.5 flex items-center space-x-1.5">
                 <AlertOctagon className="w-3.5 h-3.5 text-amber-600" />
                 <span>Blockers & Impediments Severity</span>
               </label>
@@ -338,7 +338,7 @@ export const EODReportForm: React.FC<EODReportFormProps> = ({
 
           {/* Interactive Drag & Drop File Upload Area */}
           <div className="space-y-1.5">
-            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-700 flex items-center justify-between">
+            <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-700 flex items-center justify-between">
               <span className="flex items-center space-x-1.5">
                 <UploadCloud className="w-3.5 h-3.5 text-indigo-600" />
                 <span>EOD File Attachment / Debug Logs</span>
@@ -471,7 +471,7 @@ export const EODReportForm: React.FC<EODReportFormProps> = ({
             <span>{currentRole !== 'EMPLOYEE' ? 'Manager Review Granted' : 'Read-Only Feed'}</span>
           </div>
 
-          <div className="space-y-2.5 max-h-[500px] overflow-y-auto pr-1 w-full min-w-0">
+          <div className="space-y-2.5 max-h-125 overflow-y-auto pr-1 w-full min-w-0">
             {reports.map((report) => (
               <div
                 key={report.id}
@@ -501,17 +501,17 @@ export const EODReportForm: React.FC<EODReportFormProps> = ({
                   </div>
                 </div>
 
-                <p className="text-xs text-slate-700 leading-relaxed bg-slate-50 p-2.5 rounded-lg border border-slate-200 break-words">
+                <p className="text-xs text-slate-700 leading-relaxed bg-slate-50 p-2.5 rounded-lg border border-slate-200 wrap-break-word">
                   {report.tasksCompleted}
                 </p>
 
                 {report.blockerDetails && (
-                  <div className="bg-amber-50/80 border border-amber-200 p-2.5 rounded-lg text-xs text-amber-900 space-y-0.5 break-words">
+                  <div className="bg-amber-50/80 border border-amber-200 p-2.5 rounded-lg text-xs text-amber-900 space-y-0.5 wrap-break-word">
                     <span className="font-semibold text-amber-800 text-[10px] flex items-center space-x-1 uppercase tracking-wider">
                       <ShieldAlert className="w-3 h-3 text-amber-600" />
                       <span>Blocker Detail:</span>
                     </span>
-                    <p className="break-words text-xs">{report.blockerDetails}</p>
+                    <p className="wrap-break-word text-xs">{report.blockerDetails}</p>
                   </div>
                 )}
 

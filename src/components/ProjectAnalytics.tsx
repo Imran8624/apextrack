@@ -122,7 +122,7 @@ export const ProjectAnalytics: React.FC<ProjectAnalyticsProps> = ({
           </div>
 
           <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 overflow-x-auto">
-            <div className="min-w-[650px] space-y-3">
+            <div className="min-w-162.5 space-y-3">
               {/* Gantt Header Columns */}
               <div className="grid grid-cols-12 text-[11px] font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 pb-2">
                 <div className="col-span-4">Task Name & Assignee</div>
@@ -238,11 +238,11 @@ export const ProjectAnalytics: React.FC<ProjectAnalyticsProps> = ({
       {/* VIEW 3: Interactive Kanban Board */}
       {analyticsView === 'kanban' && (
         <div className="overflow-x-auto pb-2 min-w-0">
-          <div className="grid grid-cols-5 gap-3 min-w-[720px]">
+          <div className="grid grid-cols-5 gap-3 min-w-180">
             {kanbanColumns.map((col) => {
               const columnTasks = project.tasks.filter((t) => t.status === col.status);
               return (
-                <div key={col.status} className={`p-2.5 rounded-lg border ${col.color} space-y-2.5 min-h-[350px] flex flex-col justify-between`}>
+                <div key={col.status} className={`p-2.5 rounded-lg border ${col.color} space-y-2.5 min-h-87.5 flex flex-col justify-between`}>
                   <div className="space-y-2">
                     <div className="flex items-center justify-between border-b border-slate-200/80 pb-1.5">
                       <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-800">{col.title}</h4>
@@ -356,7 +356,7 @@ export const ProjectAnalytics: React.FC<ProjectAnalyticsProps> = ({
           </div>
 
           {/* Directory Explorer & Code Preview Dual Pane */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 min-h-[380px] w-full min-w-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 min-h-95 w-full min-w-0">
             {/* Left Column: File Tree Directory */}
             <div className="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-lg p-3 flex flex-col justify-between overflow-y-auto space-y-2 min-w-0">
               <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 border-b border-slate-200 pb-2 px-1 flex items-center space-x-1.5">

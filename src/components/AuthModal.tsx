@@ -197,7 +197,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         {successMsg && (
           <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center space-x-2 animate-fadeIn">
-            <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+            <CheckCircle2 className="w-5 h-5 shrink-0" />
             <span>{successMsg}</span>
           </div>
         )}

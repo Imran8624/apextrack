@@ -424,7 +424,7 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                         <FileText className="w-3 h-3 text-indigo-600" />
                         <span>Client Requirement Specification:</span>
                       </span>
-                      <p className="text-xs text-slate-700 bg-slate-50 p-2.5 rounded-lg border border-slate-200 break-words">
+                      <p className="text-xs text-slate-700 bg-slate-50 p-2.5 rounded-lg border border-slate-200 wrap-break-word">
                         {handover.clientRequirementSummary}
                       </p>
                     </div>
@@ -435,7 +435,7 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                         <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                         <span>Work Completed in this Shift:</span>
                       </span>
-                      <p className="text-xs text-slate-700 break-words">
+                      <p className="text-xs text-slate-700 wrap-break-word">
                         {handover.progressSummary}
                       </p>
                     </div>
@@ -449,9 +449,9 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                         </span>
                         <ul className="space-y-1">
                           {handover.criticalQuestionsOrChanges.map((q, idx) => (
-                            <li key={idx} className="text-xs text-amber-900 flex items-start space-x-1.5 break-words">
+                            <li key={idx} className="text-xs text-amber-900 flex items-start space-x-1.5 wrap-break-word">
                               <span className="text-amber-600 font-bold">•</span>
-                              <span className="break-words">{q}</span>
+                              <span className="wrap-break-word">{q}</span>
                             </li>
                           ))}
                         </ul>
@@ -464,14 +464,14 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                         <ArrowRight className="w-3 h-3 text-indigo-600" />
                         <span>Immediate Next Steps for Incoming Shift:</span>
                       </span>
-                      <p className="text-xs text-slate-700 break-words">
+                      <p className="text-xs text-slate-700 wrap-break-word">
                         {handover.nextStepsForIncoming}
                       </p>
                     </div>
 
                     {/* Watchouts & Gotchas */}
                     {handover.gotchasAndWatchouts && (
-                      <div className="text-[11px] text-slate-700 bg-rose-50/70 p-2 rounded-lg border border-rose-200 break-words">
+                      <div className="text-[11px] text-slate-700 bg-rose-50/70 p-2 rounded-lg border border-rose-200 wrap-break-word">
                         <strong className="text-rose-700">⚠️ Watchout:</strong> {handover.gotchasAndWatchouts}
                       </div>
                     )}
