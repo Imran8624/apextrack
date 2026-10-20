@@ -1,0 +1,245 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  EMPLOYEE
+  TEAM_LEAD
+  MANAGER
+  HR
+}
+
+enum EnrollmentStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  PASSED
+  FAILED
+  EXPIRED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  IN_REVIEW
+  BLOCKED
+  DONE
+}
+
+enum BlockerSeverity {
+  NONE
+  MINOR
+  MODERATE
+  CRITICAL
+}
+
+enum ProjectRisk {
+  ON_TRACK
+  AT_RISK
+  DELAYED
+}
+
+model User {
+  id            String         @id @default(uuid())
+  name          String
+  email         String         @unique
+  avatarUrl     String?
+  role          Role           @default(EMPLOYEE)
+  department    String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  assignedTasks Task[]         @relation("TaskAssignee")
+  dailyReports  DailyReport[]
+  messages      Message[]
+  pinnedBy      PinnedMessage[]
+  teamLeads     Project[]      @relation("ProjectLead")
+  courseEnrollments CourseEnrollment[]
+  certificates      Certificate[]
+}
+
+
+model Project {
+  id                    String        @id @default(uuid())
+  name                  String
+  code                  String        @unique
+  description           String?
+  baselineFinishDate    DateTime
+  calculatedFinishDate  DateTime
+  overrideFinishDate    DateTime?
+  overrideReason        String?
+  targetVelocity        Float         @default(1.0)
+  currentVelocity       Float         @default(1.0)
+  riskStatus            ProjectRisk   @default(ON_TRACK)
+  leadId                String
+  lead                  User          @relation("ProjectLead", fields: [leadId], references: [id])
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+
+  tasks                 Task[]
+  dailyReports          DailyReport[]
+  velocityLogs          VelocityLog[]
+}
+
+model Task {
+  id             String       @id @default(uuid())
+  projectId      String
+  project        Project      @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  title          String
+  description    String?
+  estimatedHours Float
+  loggedHours    Float        @default(0)
+  status         TaskStatus   @default(TODO)
+  priority       Priority     @default(MEDIUM)
+  assigneeId     String?
+  assignee       User?        @relation("TaskAssignee", fields: [assigneeId], references: [id])
+  startDate      DateTime?
+  dueDate        DateTime?
+  requiredCourseId String?
+  requiredCourse   Course?    @relation(fields: [requiredCourseId], references: [id])
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  dailyReports   DailyReport[]
+}
+
+model DailyReport {
+  id              String          @id @default(uuid())
+  userId          String
+  user            User            @relation(fields: [userId], references: [id])
+  projectId       String
+  project         Project         @relation(fields: [projectId], references: [id])
+  taskId          String?
+  task            Task?           @relation(fields: [taskId], references: [id])
+  hoursLogged     Float
+  tasksCompleted  String
+  blockerDetails  String?
+  blockerSeverity BlockerSeverity @default(NONE)
+  fileAttachment  String?
+  isApproved      Boolean         @default(false)
+  approvedById    String?
+  submittedAt     DateTime        @default(now())
+}
+
+model VelocityLog {
+  id             String   @id @default(uuid())
+  projectId      String
+  project        Project  @relation(fields: [projectId], references: [id])
+  recordedAt     DateTime @default(now())
+  velocityRatio  Float
+  remainingHours Float
+  projectedDays  Int
+}
+
+model Channel {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  isEmergency Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  messages    Message[]
+  pinned      PinnedMessage[]
+}
+
+model Message {
+  id         String   @id @default(uuid())
+  channelId  String
+  channel    Channel  @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  senderId   String
+  sender     User     @relation(fields: [senderId], references: [id])
+  content    String
+  sentAt     DateTime @default(now())
+  isPinned   Boolean  @default(false)
+
+  pinnedItem PinnedMessage?
+}
+
+model PinnedMessage {
+  id        String   @id @default(uuid())
+  channelId String
+  channel   Channel  @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  messageId String   @unique
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  pinnedById String
+  pinnedBy  User     @relation(fields: [pinnedById], references: [id])
+  pinnedAt  DateTime @default(now())
+}
+
+model CallSession {
+  id         String    @id @default(uuid())
+  channelId  String?
+  callerId   String
+  isWarRoom  Boolean   @default(false)
+  startedAt  DateTime  @default(now())
+  endedAt    DateTime?
+  isActive   Boolean   @default(true)
+}
+
+model WarRoomAlert {
+  id         String   @id @default(uuid())
+  triggeredById String
+  reason     String
+  channelId  String?
+  createdAt  DateTime @default(now())
+  active     Boolean  @default(true)
+}
+
+model Course {
+  id                  String             @id @default(uuid())
+  title               String
+  description         String
+  category            String?            @default("Engineering")
+  passScorePercentage Int                @default(80)
+  deadlineDays        Int?
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+  
+  enrollments         CourseEnrollment[]
+  certificates        Certificate[]
+  requiredByTasks     Task[]
+}
+
+model CourseEnrollment {
+  id                 String           @id @default(uuid())
+  userId             String
+  courseId           String
+  assignedById       String?
+  status             EnrollmentStatus @default(NOT_STARTED)
+  score              Int?
+  attemptsCount      Int              @default(0)
+  completedAt        DateTime?
+  dueDate            DateTime?
+  
+  user               User             @relation(fields: [userId], references: [id])
+  course             Course           @relation(fields: [courseId], references: [id])
+  certificate        Certificate?
+
+  @@unique([userId, courseId])
+}
+
+model Certificate {
+  id               String           @id @default(uuid())
+  enrollmentId     String           @unique
+  userId           String
+  courseId         String
+  verificationCode String           @unique
+  certificateUrl   String
+  issuedAt         DateTime         @default(now())
+  
+  user             User             @relation(fields: [userId], references: [id])
+  course           Course           @relation(fields: [courseId], references: [id])
+  enrollment       CourseEnrollment @relation(fields: [enrollmentId], references: [id])
+}
+

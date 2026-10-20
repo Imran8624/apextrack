@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "name": "ApexTracker-Agent-Extensions",
+  "description": "GSD & Ralph Loop Agent Plugin Connector",
+  "connectedPlugins": [
+    {
+      "name": "modern-web-guidance-plugin",
+      "status": "active",
+      "description": "Modern web guidelines for Next.js 16, React 19, and Tailwind CSS v4"
+    },
+    {
+      "name": "chrome-devtools-plugin",
+      "status": "active",
+      "description": "Browser automation and UI visual empirical validation"
+    },
+    {
+      "name": "google-antigravity-sdk",
+      "status": "active",
+      "description": "Native subagent delegation and task orchestration"
+    },
+    {
+      "name": "firebase",
+      "status": "active",
+      "description": "Cloud hosting and authentication extensions"
+    },
+    {
+      "name": "science",
+      "status": "active",
+      "description": "Scientific computation and data analysis extensions"
+    }
+  ],
+  "gsd": {
+    "version": "1.6.0",
+    "loop": "ralpha-loop",
+    "stateFile": ".gsd/STATE.md",
+    "roadmapFile": ".gsd/ROADMAP.md",
+    "specFile": ".gsd/SPEC.md",
+    "workflowsPath": ".agent/workflows"
+  }
+}
