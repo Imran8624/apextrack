@@ -73,74 +73,70 @@ export const Navbar: React.FC<NavbarProps> = ({
       label: 'Employee',
       name: 'Alex Rivers (Dev)',
       icon: '👤',
-      badgeColor: 'bg-indigo-600/20 text-indigo-300 border-indigo-500/40',
+      badgeColor: 'bg-[#1e293b] text-slate-200 border-[#2d3748]',
     },
     TEAM_LEAD: {
       label: 'Team Lead',
       name: 'Marcus Vance (Lead)',
       icon: '🛡️',
-      badgeColor: 'bg-amber-600/20 text-amber-300 border-amber-500/40',
+      badgeColor: 'bg-[#23241d] text-amber-300 border-amber-900/60',
     },
     MANAGER: {
       label: 'Manager',
-      name: 'Elena Rostova (VP Ops)',
+      name: 'Elena Rostova (VP)',
       icon: '👑',
-      badgeColor: 'bg-purple-600/20 text-purple-300 border-purple-500/40',
+      badgeColor: 'bg-[#241d2e] text-purple-300 border-purple-900/60',
     },
     HR: {
       label: 'HR / Learning',
-      name: 'Claire Underwood (HR)',
+      name: 'Claire Underwood',
       icon: '🎓',
-      badgeColor: 'bg-pink-600/20 text-pink-300 border-pink-500/40',
+      badgeColor: 'bg-[#1b2333] text-blue-300 border-blue-900/60',
     },
   };
 
   return (
-    <header className="bg-slate-900/95 border-b border-slate-800 text-slate-100 sticky top-0 z-40 shadow-xl backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-3">
+    <header className="bg-[#161e2e] border-b border-[#232f3e] text-slate-200 sticky top-0 z-40 shadow-sm w-full">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 gap-2">
           {/* Logo & App Title */}
           <div
-            className="flex items-center space-x-3 cursor-pointer flex-shrink-0"
+            className="flex items-center space-x-2.5 cursor-pointer shrink-0"
             onClick={() => setActiveTab('dashboard')}
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-              <Zap className="w-6 h-6 text-white" />
+            <div className="w-8 h-8 rounded-md bg-[#232f3e] border border-[#2d3748] flex items-center justify-center text-blue-400">
+              <Zap className="w-4 h-4" />
             </div>
             <div className="hidden sm:block">
-              <div className="flex items-center space-x-2">
-                <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent">
+              <div className="flex items-center space-x-1.5">
+                <span className="font-bold text-sm tracking-tight text-slate-100">
                   ApexTracker
                 </span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
-                  Enterprise
+                <span className="text-[10px] px-1.5 py-0.2 rounded font-mono font-medium bg-[#232f3e] text-slate-300 border border-[#2d3748]">
+                  Console
                 </span>
               </div>
-              <p className="text-xs text-slate-400">Project Intelligence & Continuity</p>
             </div>
           </div>
 
           {/* Active Project Selector */}
-          <div className="hidden lg:flex items-center space-x-2 bg-slate-950 px-3 py-1.5 rounded-xl border border-indigo-500/30 shadow-inner">
-            <FolderGit2 className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <div className="flex flex-col">
-              <span className="text-[10px] uppercase tracking-wider font-bold text-indigo-400 leading-tight">Project</span>
-              <select
-                value={activeProjectId}
-                onChange={(e) => onSelectProject(e.target.value)}
-                className="bg-transparent text-xs font-extrabold text-slate-100 border-none outline-none cursor-pointer focus:ring-0 p-0"
-              >
-                {projects.map((p) => (
-                  <option key={p.id} value={p.id} className="bg-slate-900 text-slate-200">
-                    [{p.code}] {p.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="hidden md:flex items-center space-x-2 bg-[#0f141c] px-2.5 py-1 rounded-md border border-[#232f3e] shrink-0">
+            <FolderGit2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            <select
+              value={activeProjectId}
+              onChange={(e) => onSelectProject(e.target.value)}
+              className="bg-transparent text-xs font-semibold text-slate-200 border-none outline-none cursor-pointer focus:ring-0 p-0"
+            >
+              {projects.map((p) => (
+                <option key={p.id} value={p.id} className="bg-[#161e2e] text-slate-200">
+                  [{p.code}] {p.name}
+                </option>
+              ))}
+            </select>
           </div>
 
-          {/* Desktop Nav Tabs: Primary Hubs + Clean More Menu */}
-          <nav className="hidden xl:flex items-center space-x-1 bg-slate-950/70 p-1 rounded-xl border border-slate-800/80">
+          {/* Desktop Nav Tabs: Scrollable without breaking bounds */}
+          <nav className="hidden lg:flex items-center space-x-1 bg-[#0f141c] p-1 rounded-md border border-[#232f3e] overflow-x-auto no-scrollbar min-w-0">
             {primaryNavItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;
@@ -149,43 +145,38 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-150 flex items-center space-x-1.5 ${
+                  className={`px-2.5 py-1 rounded text-xs font-medium transition-colors flex items-center space-x-1.5 whitespace-nowrap ${
                     isActive
-                      ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                      ? 'bg-[#232f3e] text-white border border-[#3b82f6]/40 shadow-sm'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-[#161e2e]'
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-400'}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-blue-400' : 'text-slate-400'}`} />
                   <span>{item.label}</span>
-                  {item.badge && !isActive && (
-                    <span className="text-[9px] px-1.5 py-0.2 rounded-full font-black bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                      {item.badge}
-                    </span>
-                  )}
                 </button>
               );
             })}
 
             {/* Compact More Dropdown */}
-            <div className="relative">
+            <div className="relative shrink-0">
               <button
                 onClick={() => setMoreDropdownOpen(!moreDropdownOpen)}
-                className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-150 flex items-center space-x-1 ${
+                className={`px-2 py-1 rounded text-xs font-medium transition-colors flex items-center space-x-1 ${
                   secondaryNavItems.some((s) => s.id === activeTab)
-                    ? 'bg-indigo-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                    ? 'bg-[#232f3e] text-white border border-[#3b82f6]/40'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-[#161e2e]'
                 }`}
               >
                 <span>
                   {secondaryNavItems.find((s) => s.id === activeTab)?.label || 'More'}
                 </span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${moreDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3 h-3 transition-transform ${moreDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {moreDropdownOpen && (
                 <>
                   <div className="fixed inset-0 z-40" onClick={() => setMoreDropdownOpen(false)} />
-                  <div className="absolute left-0 mt-2 w-48 bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl z-50 animate-in fade-in zoom-in-95">
+                  <div className="absolute left-0 mt-1.5 w-44 bg-[#161e2e] border border-[#232f3e] rounded-md p-1 shadow-xl z-50">
                     {secondaryNavItems.map((item) => {
                       const Icon = item.icon;
                       const isActive = activeTab === item.id;
@@ -196,13 +187,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                             setActiveTab(item.id);
                             setMoreDropdownOpen(false);
                           }}
-                          className={`w-full flex items-center space-x-2 px-3 py-2 rounded-lg text-xs font-bold transition-all ${
+                          className={`w-full flex items-center space-x-2 px-2.5 py-1.5 rounded text-xs font-medium transition-colors ${
                             isActive
-                              ? 'bg-indigo-600 text-white font-black'
-                              : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                              ? 'bg-[#232f3e] text-white font-bold'
+                              : 'text-slate-300 hover:bg-[#1e293b] hover:text-white'
                           }`}
                         >
-                          <Icon className="w-3.5 h-3.5 text-indigo-400" />
+                          <Icon className="w-3.5 h-3.5 text-blue-400" />
                           <span>{item.label}</span>
                         </button>
                       );
@@ -213,26 +204,38 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </nav>
 
-          {/* Right Controls: Single Role Persona Dropdown & Actions */}
-          <div className="flex items-center space-x-2">
-            {/* Sleek Role Persona Selector Dropdown (Replaces 4 crowded buttons) */}
+          {/* Right Controls: War Room Escalation, Role Persona, and Help */}
+          <div className="flex items-center space-x-2 shrink-0">
+            {/* War Room Escalation Button */}
+            {onTriggerWarRoom && (
+              <button
+                onClick={onTriggerWarRoom}
+                className="hidden sm:flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/60 text-xs font-semibold transition-colors"
+                title="Trigger Emergency War Room"
+              >
+                <AlertTriangle className="w-3.5 h-3.5 text-red-400" />
+                <span>War Room</span>
+              </button>
+            )}
+
+            {/* Role Persona Dropdown */}
             <div className="relative">
               <button
                 onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
-                className={`hidden sm:flex items-center space-x-2 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all shadow-sm ${roleMeta[currentRole].badgeColor} hover:brightness-110`}
+                className={`flex items-center space-x-1.5 px-2 py-1 rounded-md border text-xs font-medium transition-all ${roleMeta[currentRole].badgeColor}`}
                 title="Change active viewing persona"
               >
                 <span>{roleMeta[currentRole].icon}</span>
-                <span className="font-extrabold">{roleMeta[currentRole].name}</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${roleDropdownOpen ? 'rotate-180' : ''}`} />
+                <span className="font-semibold hidden sm:inline">{roleMeta[currentRole].label}</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${roleDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {roleDropdownOpen && (
                 <>
                   <div className="fixed inset-0 z-40" onClick={() => setRoleDropdownOpen(false)} />
-                  <div className="absolute right-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-2xl p-2 shadow-2xl z-50 animate-in fade-in zoom-in-95">
-                    <div className="px-2 py-1.5 border-b border-slate-800/80 mb-1">
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
+                  <div className="absolute right-0 mt-1.5 w-60 bg-[#161e2e] border border-[#232f3e] rounded-md p-1.5 shadow-xl z-50">
+                    <div className="px-2 py-1 border-b border-[#232f3e] mb-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                         Switch Active Role Persona
                       </span>
                     </div>
@@ -246,21 +249,23 @@ export const Navbar: React.FC<NavbarProps> = ({
                             onRoleChange(role);
                             setRoleDropdownOpen(false);
                           }}
-                          className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all text-left ${
+                          className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded text-xs font-medium transition-colors text-left ${
                             isCurrent
-                              ? 'bg-indigo-600/30 text-white border border-indigo-500/40'
-                              : 'text-slate-300 hover:bg-slate-800/60 hover:text-white'
+                              ? 'bg-[#232f3e] text-white border border-[#3b82f6]/40'
+                              : 'text-slate-300 hover:bg-[#1e293b] hover:text-white'
                           }`}
                         >
-                          <div className="flex items-center space-x-2.5">
-                            <span className="text-base">{meta.icon}</span>
+                          <div className="flex items-center space-x-2">
+                            <span className="text-sm">{meta.icon}</span>
                             <div>
-                              <span className="block text-xs font-black">{meta.label}</span>
+                              <span className="block text-xs font-bold">{meta.label}</span>
                               <span className="block text-[10px] text-slate-400">{meta.name}</span>
                             </div>
                           </div>
                           {isCurrent && (
-                            <span className="text-[9px] px-1.5 py-0.5 rounded font-black uppercase bg-indigo-500/20 text-indigo-300">Active</span>
+                            <span className="text-[9px] px-1.5 py-0.2 rounded font-bold uppercase bg-blue-950 text-blue-300 border border-blue-800">
+                              Active
+                            </span>
                           )}
                         </button>
                       );
@@ -270,21 +275,21 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
-            {/* Welcome / Guide Button */}
+            {/* Help / Guide */}
             <button
               onClick={() => onOpenAuthModal('admin')}
-              className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-all border border-slate-700/80 flex-shrink-0"
+              className="p-1.5 rounded-md bg-[#232f3e] hover:bg-[#2d3748] text-slate-300 hover:text-white transition-colors border border-[#2d3748] shrink-0"
               title="Open Welcome Gateway & Onboarding Guide"
             >
-              <HelpCircle className="w-4 h-4 text-indigo-400" />
+              <HelpCircle className="w-3.5 h-3.5 text-slate-300" />
             </button>
 
             {/* Mobile Hamburger Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 hover:text-white"
+              className="lg:hidden p-1.5 rounded-md bg-[#232f3e] border border-[#2d3748] text-slate-300 hover:text-white"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
         </div>

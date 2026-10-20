@@ -767,7 +767,7 @@ export default function DashboardHome() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#0f141c] text-slate-200 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
       {/* Top Navbar Header */}
       <Navbar
         currentRole={currentRole}
@@ -784,7 +784,7 @@ export default function DashboardHome() {
       />
 
       {/* Main Workspace Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5 space-y-5 min-w-0 overflow-hidden">
         {/* OPTION 1: Overview & Dynamic Deadline Engine - Opens ONLY this */}
         {activeTab === 'dashboard' && (
           <DynamicDeadlineWidget

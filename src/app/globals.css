@@ -1,9 +1,23 @@
 @import "tailwindcss";
 
+/* Strict boundary control - prevents any element from escaping viewport */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #0f141c;
+  color: #e2e8f0;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+* {
+  box-sizing: border-box;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
   to {
     opacity: 1;
@@ -12,24 +26,33 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.25s ease-out forwards;
+  animation: fadeIn 0.18s ease-out forwards;
 }
 
-/* Custom sleek dark scrollbar */
+/* Utilitarian Cloudscape scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: #0f141c;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e3b23;
-  border-radius: 9999px;
+  background: #232f3e;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #2d3748;
+}
+
+/* Hide scrollbar utility for horizontal tab bars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
