@@ -39,8 +39,8 @@ export const WarRoomModal: React.FC<WarRoomModalProps> = ({
       <div
         className={`border p-4 rounded-2xl shadow-2xl flex flex-wrap items-center justify-between gap-4 ${
           isDirectCall
-            ? 'bg-gradient-to-r from-indigo-950 via-purple-950 to-slate-950 border-indigo-500/50'
-            : 'bg-gradient-to-r from-red-950 via-red-900 to-rose-950 border-red-500/50'
+            ? 'bg-linear-to-r from-indigo-950 via-purple-950 to-slate-950 border-indigo-500/50'
+            : 'bg-linear-to-r from-red-950 via-red-900 to-rose-950 border-red-500/50'
         }`}
       >
         <div className="flex items-center space-x-3">
@@ -102,7 +102,7 @@ export const WarRoomModal: React.FC<WarRoomModalProps> = ({
             }`}
           >
             {/* Simulated Live Video Feed Background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-950/80 to-slate-950 z-0" />
+            <div className="absolute inset-0 bg-linear-to-b from-slate-900/40 via-slate-950/80 to-slate-950 z-0" />
 
             {participant.isScreenSharing ? (
               <div className="absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-6 text-center space-y-2">
@@ -115,7 +115,7 @@ export const WarRoomModal: React.FC<WarRoomModalProps> = ({
             ) : (
               <div className="relative z-10 flex flex-col items-center justify-center h-full my-auto space-y-2">
                 <div className="relative">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-slate-800 to-indigo-950 border-2 border-indigo-500/40 flex items-center justify-center text-2xl font-bold text-indigo-300 shadow-xl">
+                  <div className="w-24 h-24 rounded-full bg-linear-to-tr from-slate-800 to-indigo-950 border-2 border-indigo-500/40 flex items-center justify-center text-2xl font-bold text-indigo-300 shadow-xl">
                     {participant.name.charAt(0)}
                   </div>
                   {participant.hasVideo && (

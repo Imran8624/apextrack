@@ -26,9 +26,9 @@ export const AdminRegistrationHero: React.FC<AdminRegistrationHeroProps> = ({
 
   if (isCollapsed) {
     return (
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950/80 to-slate-900 border border-indigo-500/30 rounded-2xl px-5 py-3 shadow-lg flex flex-wrap items-center justify-between gap-3 animate-in fade-in duration-200">
+      <div className="bg-linear-to-r from-slate-900 via-indigo-950/80 to-slate-900 border border-indigo-500/30 rounded-2xl px-5 py-3 shadow-lg flex flex-wrap items-center justify-between gap-3 animate-in fade-in duration-200">
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white font-black text-xs shadow-md">
+          <div className="w-8 h-8 rounded-lg bg-linear-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white font-black text-xs shadow-md">
             {currentUserName.charAt(0)}
           </div>
           <div>
@@ -74,7 +74,7 @@ export const AdminRegistrationHero: React.FC<AdminRegistrationHeroProps> = ({
   }
 
   return (
-    <div className="bg-gradient-to-r from-slate-900 via-indigo-950/60 to-purple-950/60 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden space-y-6">
+    <div className="bg-linear-to-r from-slate-900 via-indigo-950/60 to-purple-950/60 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden space-y-6">
       {/* Minimize Button */}
       <button
         onClick={() => setIsCollapsed(true)}
@@ -112,7 +112,7 @@ export const AdminRegistrationHero: React.FC<AdminRegistrationHeroProps> = ({
           {/* Active Session Status Card */}
           <div className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800 flex items-center justify-between gap-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md">
                 {currentUserName.charAt(0)}
               </div>
               <div>
@@ -129,7 +129,7 @@ export const AdminRegistrationHero: React.FC<AdminRegistrationHeroProps> = ({
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => onOpenAuthModal('admin')}
-                className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-purple-600 hover:from-amber-500 hover:to-purple-500 text-white font-black text-xs shadow-lg shadow-amber-600/30 transition-all flex items-center space-x-1.5"
+                className="px-4 py-2 rounded-xl bg-linear-to-r from-amber-600 to-purple-600 hover:from-amber-500 hover:to-purple-500 text-white font-black text-xs shadow-lg shadow-amber-600/30 transition-all flex items-center space-x-1.5"
               >
                 <Crown className="w-4 h-4" />
                 <span>Admin Sign Up</span>
@@ -160,7 +160,7 @@ export const AdminRegistrationHero: React.FC<AdminRegistrationHeroProps> = ({
               }}
               className={`w-full p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
                 currentRole === 'TEAM_LEAD'
-                  ? 'bg-gradient-to-r from-amber-950/80 to-slate-900 border-amber-400 text-white shadow-md'
+                  ? 'bg-linear-to-r from-amber-950/80 to-slate-900 border-amber-400 text-white shadow-md'
                   : 'bg-slate-900/80 border-slate-800 hover:border-amber-500/50 text-slate-200'
               }`}
             >
@@ -182,7 +182,7 @@ export const AdminRegistrationHero: React.FC<AdminRegistrationHeroProps> = ({
               }}
               className={`w-full p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
                 currentRole === 'MANAGER'
-                  ? 'bg-gradient-to-r from-purple-950/80 to-slate-900 border-purple-400 text-white shadow-md'
+                  ? 'bg-linear-to-r from-purple-950/80 to-slate-900 border-purple-400 text-white shadow-md'
                   : 'bg-slate-900/80 border-slate-800 hover:border-purple-500/50 text-slate-200'
               }`}
             >
@@ -204,7 +204,7 @@ export const AdminRegistrationHero: React.FC<AdminRegistrationHeroProps> = ({
               }}
               className={`w-full p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
                 currentRole === 'EMPLOYEE'
-                  ? 'bg-gradient-to-r from-indigo-950/80 to-slate-900 border-indigo-400 text-white shadow-md'
+                  ? 'bg-linear-to-r from-indigo-950/80 to-slate-900 border-indigo-400 text-white shadow-md'
                   : 'bg-slate-900/80 border-slate-800 hover:border-indigo-500/50 text-slate-200'
               }`}
             >

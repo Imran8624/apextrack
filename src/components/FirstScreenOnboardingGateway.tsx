@@ -121,7 +121,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
         {/* Top Header */}
         <div className="flex items-center justify-between border-b border-slate-800 pb-4">
           <div className="flex items-center space-x-3">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 via-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-xl shadow-amber-500/20">
+            <div className="w-11 h-11 rounded-2xl bg-linear-to-tr from-amber-500 via-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-xl shadow-amber-500/20">
               <Zap className="w-6 h-6" />
             </div>
             <div>
@@ -200,7 +200,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
             onClick={() => setActiveTab('admin')}
             className={`py-2 px-2.5 rounded-xl transition-all flex items-center justify-center space-x-1.5 ${
               activeTab === 'admin'
-                ? 'bg-gradient-to-r from-amber-600 to-purple-600 text-white shadow-md'
+                ? 'bg-linear-to-r from-amber-600 to-purple-600 text-white shadow-md'
                 : 'text-amber-400 hover:text-slate-200'
             }`}
           >
@@ -212,7 +212,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
             onClick={() => setActiveTab('employee')}
             className={`py-2 px-2.5 rounded-xl transition-all flex items-center justify-center space-x-1.5 ${
               activeTab === 'employee'
-                ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
+                ? 'bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-md'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -224,7 +224,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
             onClick={() => setActiveTab('guide')}
             className={`py-2 px-2.5 rounded-xl transition-all flex items-center justify-center space-x-1.5 ${
               activeTab === 'guide'
-                ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md'
+                ? 'bg-linear-to-r from-emerald-600 to-teal-600 text-white shadow-md'
                 : 'text-emerald-400 hover:text-slate-200'
             }`}
           >
@@ -236,7 +236,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
             onClick={() => setActiveTab('signin')}
             className={`py-2 px-2.5 rounded-xl transition-all flex items-center justify-center space-x-1.5 ${
               activeTab === 'signin'
-                ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
+                ? 'bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-md'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -284,7 +284,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <UserIcon className="w-3.5 h-3.5 text-amber-400" />
                   <span>Admin Full Name *</span>
                 </label>
@@ -299,7 +299,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Mail className="w-3.5 h-3.5 text-amber-400" />
                   <span>Corporate Email *</span>
                 </label>
@@ -316,7 +316,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Building2 className="w-3.5 h-3.5 text-amber-400" />
                   <span>Department *</span>
                 </label>
@@ -334,7 +334,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Briefcase className="w-3.5 h-3.5 text-amber-400" />
                   <span>Job Designation Title</span>
                 </label>
@@ -350,7 +350,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Shield className="w-3.5 h-3.5 text-amber-400" />
                   <span>Management Role *</span>
                 </label>
@@ -360,7 +360,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
                     onClick={() => setAdminRole('TEAM_LEAD')}
                     className={`py-2 px-2.5 rounded-xl text-xs font-bold border transition-all ${
                       adminRole === 'TEAM_LEAD'
-                        ? 'bg-gradient-to-r from-amber-600 to-indigo-600 text-white border-amber-400 shadow-md'
+                        ? 'bg-linear-to-r from-amber-600 to-indigo-600 text-white border-amber-400 shadow-md'
                         : 'bg-slate-950 text-slate-400 border-slate-800'
                     }`}
                   >
@@ -371,7 +371,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
                     onClick={() => setAdminRole('MANAGER')}
                     className={`py-2 px-2.5 rounded-xl text-xs font-bold border transition-all ${
                       adminRole === 'MANAGER'
-                        ? 'bg-gradient-to-r from-purple-600 to-amber-600 text-white border-purple-400 shadow-md'
+                        ? 'bg-linear-to-r from-purple-600 to-amber-600 text-white border-purple-400 shadow-md'
                         : 'bg-slate-950 text-slate-400 border-slate-800'
                     }`}
                   >
@@ -381,7 +381,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Lock className="w-3.5 h-3.5 text-amber-400" />
                   <span>Admin Passcode *</span>
                 </label>
@@ -397,7 +397,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-600 via-purple-600 to-indigo-600 hover:from-amber-500 hover:to-indigo-500 text-white font-extrabold text-xs shadow-xl shadow-amber-600/30 transition-all flex items-center justify-center space-x-2"
+              className="w-full py-3.5 rounded-xl bg-linear-to-r from-amber-600 via-purple-600 to-indigo-600 hover:from-amber-500 hover:to-indigo-500 text-white font-extrabold text-xs shadow-xl shadow-amber-600/30 transition-all flex items-center justify-center space-x-2"
             >
               <Crown className="w-4 h-4" />
               <span>Complete Admin Registration ({adminRole === 'TEAM_LEAD' ? 'Team Lead' : 'Manager'})</span>
@@ -421,7 +421,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <UserIcon className="w-3.5 h-3.5 text-indigo-400" />
                   <span>Full Name *</span>
                 </label>
@@ -436,7 +436,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Mail className="w-3.5 h-3.5 text-indigo-400" />
                   <span>Email Address *</span>
                 </label>
@@ -453,7 +453,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Building2 className="w-3.5 h-3.5 text-indigo-400" />
                   <span>Department *</span>
                 </label>
@@ -471,7 +471,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Briefcase className="w-3.5 h-3.5 text-indigo-400" />
                   <span>Job Designation Title</span>
                 </label>
@@ -487,7 +487,7 @@ export const FirstScreenOnboardingGateway: React.FC<FirstScreenOnboardingGateway
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs shadow-xl shadow-indigo-600/30 transition-all flex items-center justify-center space-x-2"
+              className="w-full py-3.5 rounded-xl bg-linear-to-r from-indigo-600 via-purple-600 to-indigo-700 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs shadow-xl shadow-indigo-600/30 transition-all flex items-center justify-center space-x-2"
             >
               <UserPlus className="w-4 h-4" />
               <span>Create Employee Account</span>

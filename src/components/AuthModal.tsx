@@ -142,7 +142,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* Top Header */}
         <div className="flex items-center justify-between border-b border-slate-800 pb-3">
           <div className="flex items-center space-x-2.5">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-amber-500/20">
+            <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-amber-500 via-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-amber-500/20">
               <Crown className="w-6 h-6" />
             </div>
             <div>
@@ -162,7 +162,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => setAuthMode('admin')}
             className={`w-1/3 py-2 rounded-lg transition-all flex items-center justify-center space-x-1.5 ${
               authMode === 'admin'
-                ? 'bg-gradient-to-r from-amber-600 to-purple-600 text-white shadow-md'
+                ? 'bg-linear-to-r from-amber-600 to-purple-600 text-white shadow-md'
                 : 'text-amber-400 hover:text-slate-200'
             }`}
           >
@@ -174,7 +174,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => setAuthMode('signup')}
             className={`w-1/3 py-2 rounded-lg transition-all flex items-center justify-center space-x-1.5 ${
               authMode === 'signup'
-                ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
+                ? 'bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-md'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -186,7 +186,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => setAuthMode('signin')}
             className={`w-1/3 py-2 rounded-lg transition-all flex items-center justify-center space-x-1.5 ${
               authMode === 'signin'
-                ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
+                ? 'bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-md'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -255,7 +255,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             {/* Form Fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <UserIcon className="w-3.5 h-3.5 text-amber-400" />
                   <span>Admin Full Name *</span>
                 </label>
@@ -270,7 +270,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Mail className="w-3.5 h-3.5 text-amber-400" />
                   <span>Corporate Email *</span>
                 </label>
@@ -288,7 +288,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             {/* Department & Job Title */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Building2 className="w-3.5 h-3.5 text-amber-400" />
                   <span>Department *</span>
                 </label>
@@ -306,7 +306,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                   <Briefcase className="w-3.5 h-3.5 text-amber-400" />
                   <span>Job Designation Title</span>
                 </label>
@@ -322,7 +322,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
             {/* Admin Management Role Selection */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                 <Shield className="w-3.5 h-3.5 text-amber-400" />
                 <span>Select Admin Authority Level *</span>
               </label>
@@ -332,7 +332,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   onClick={() => setAdminRole('TEAM_LEAD')}
                   className={`py-2 px-3 rounded-xl text-xs font-bold border transition-all ${
                     adminRole === 'TEAM_LEAD'
-                      ? 'bg-gradient-to-r from-amber-600 to-indigo-600 text-white border-amber-400 shadow-md'
+                      ? 'bg-linear-to-r from-amber-600 to-indigo-600 text-white border-amber-400 shadow-md'
                       : 'bg-slate-950 text-slate-400 border-slate-800'
                   }`}
                 >
@@ -343,7 +343,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   onClick={() => setAdminRole('MANAGER')}
                   className={`py-2 px-3 rounded-xl text-xs font-bold border transition-all ${
                     adminRole === 'MANAGER'
-                      ? 'bg-gradient-to-r from-purple-600 to-amber-600 text-white border-purple-400 shadow-md'
+                      ? 'bg-linear-to-r from-purple-600 to-amber-600 text-white border-purple-400 shadow-md'
                       : 'bg-slate-950 text-slate-400 border-slate-800'
                   }`}
                 >
@@ -378,7 +378,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-600 via-purple-600 to-indigo-600 hover:from-amber-500 hover:to-indigo-500 text-white font-extrabold text-xs shadow-xl shadow-amber-600/30 transition-all flex items-center justify-center space-x-2"
+              className="w-full py-3.5 rounded-xl bg-linear-to-r from-amber-600 via-purple-600 to-indigo-600 hover:from-amber-500 hover:to-indigo-500 text-white font-extrabold text-xs shadow-xl shadow-amber-600/30 transition-all flex items-center justify-center space-x-2"
             >
               <Crown className="w-4 h-4" />
               <span>Complete Admin Registration ({adminRole === 'TEAM_LEAD' ? 'Team Lead' : 'Manager'})</span>
@@ -401,7 +401,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                 <UserIcon className="w-3.5 h-3.5 text-indigo-400" />
                 <span>Full Name *</span>
               </label>
@@ -416,7 +416,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                 <Mail className="w-3.5 h-3.5 text-indigo-400" />
                 <span>Email Address *</span>
               </label>
@@ -431,7 +431,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                 <Building2 className="w-3.5 h-3.5 text-indigo-400" />
                 <span>Department *</span>
               </label>
@@ -449,7 +449,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1 flex items-center space-x-1">
                 <Cpu className="w-3.5 h-3.5 text-indigo-400" />
                 <span>Job Designation Specialization</span>
               </label>
@@ -464,7 +464,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs shadow-xl shadow-indigo-600/30 transition-all flex items-center justify-center space-x-2"
+              className="w-full py-3.5 rounded-xl bg-linear-to-r from-indigo-600 via-purple-600 to-indigo-700 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs shadow-xl shadow-indigo-600/30 transition-all flex items-center justify-center space-x-2"
             >
               <UserPlus className="w-4 h-4" />
               <span>Create Employee Account</span>
