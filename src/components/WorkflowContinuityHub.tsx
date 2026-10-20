@@ -2,11 +2,10 @@
 
 import React, { useState } from 'react';
 import { UserRole, Project, User, ShiftHandover } from '@/types';
-import { WORKFLOW_PROBLEM_STEPS, WorkflowStepComparison } from '@/lib/mockData';
+import { WORKFLOW_PROBLEM_STEPS } from '@/lib/mockData';
 import {
   GitMerge,
   ArrowRight,
-  ArrowDown,
   AlertOctagon,
   CheckCircle2,
   Clock,
@@ -14,14 +13,11 @@ import {
   FileText,
   ShieldAlert,
   Sparkles,
-  Zap,
   Repeat,
   PlusCircle,
-  HelpCircle,
   AlertTriangle,
   Send,
   Layers,
-  Building2,
   Flame,
   Check
 } from 'lucide-react';
@@ -37,7 +33,6 @@ interface WorkflowContinuityHubProps {
 }
 
 export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
-  currentRole,
   currentUser,
   projects,
   activeProjectId,
@@ -88,7 +83,6 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
     });
 
     setShowCreateModal(false);
-    // Reset form
     setFormTaskId('');
     setFormReqSummary('');
     setFormProgress('');
@@ -100,35 +94,35 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
   const selectedStep = WORKFLOW_PROBLEM_STEPS[selectedStepIndex];
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-300">
+    <div className="space-y-6 animate-in fade-in duration-300">
       {/* Top Value Proposition & Problem Banner */}
-      <div className="bg-[#161e2e] border border-[#232f3e] rounded-xl p-5 shadow-sm space-y-4 w-full min-w-0">
+      <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4 w-full min-w-0">
         <div className="space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="space-y-1">
               <div className="flex items-center space-x-2">
-                <span className="px-2 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider bg-rose-950/40 text-rose-300 border border-rose-800/50 flex items-center space-x-1.5">
-                  <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />
+                <span className="px-2 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider bg-rose-50 text-rose-700 border border-rose-200 flex items-center space-x-1.5">
+                  <ShieldAlert className="w-3.5 h-3.5 text-rose-600" />
                   <span>The Tribal Knowledge Crisis</span>
                 </span>
-                <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-950/40 text-emerald-300 border border-emerald-800/50 flex items-center space-x-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center space-x-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Apex Continuity Engine</span>
                 </span>
               </div>
-              <h2 className="text-xl font-bold text-slate-100 tracking-tight">
+              <h2 className="text-xl font-bold text-slate-900 tracking-tight">
                 Solving the Broken Workflow & Shift Handover Trap
               </h2>
             </div>
 
             {/* View Switcher Tabs */}
-            <div className="flex items-center space-x-1 bg-[#0f141c] p-1 rounded-md border border-[#232f3e]">
+            <div className="flex items-center space-x-1 bg-slate-100 p-1 rounded-lg border border-slate-200">
               <button
                 onClick={() => setViewMode('comparison')}
-                className={`px-3 py-1.5 rounded text-xs font-semibold transition-colors flex items-center space-x-1.5 ${
+                className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center space-x-1.5 ${
                   viewMode === 'comparison'
-                    ? 'bg-[#232f3e] text-white border border-[#3b82f6]/40 shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-white text-indigo-700 border border-slate-200 shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <Repeat className="w-3.5 h-3.5" />
@@ -137,10 +131,10 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
 
               <button
                 onClick={() => setViewMode('handovers')}
-                className={`px-3 py-1.5 rounded text-xs font-semibold transition-colors flex items-center space-x-1.5 ${
+                className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center space-x-1.5 ${
                   viewMode === 'handovers'
-                    ? 'bg-[#232f3e] text-white border border-[#3b82f6]/40 shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-white text-indigo-700 border border-slate-200 shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <GitMerge className="w-3.5 h-3.5" />
@@ -149,39 +143,39 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
             </div>
           </div>
 
-          <p className="text-slate-300 text-xs leading-relaxed max-w-4xl">
+          <p className="text-slate-600 text-xs leading-relaxed max-w-4xl">
             In traditional organizations, <strong>client requirements get scattered</strong>, questions remain in personal chats, and whenever an employee ends their shift or moves to another project, the next engineer inherits zero context—costing hours of reverse-engineering and causing project delays. ApexTracker replaces this breakdown with <strong>structured handover protocols and anchored living context</strong>.
           </p>
 
           {/* 3 High-Impact Metrics */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-            <div className="bg-[#0f141c] p-3 rounded-lg border border-[#232f3e] flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-md bg-[#232f3e] text-emerald-400 flex items-center justify-center font-bold">
+            <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 flex items-center space-x-3">
+              <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 text-emerald-600 flex items-center justify-center font-bold shadow-xs">
                 <Clock className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-[11px] text-slate-400 font-medium">Shift Handover Ramp-up</p>
-                <p className="text-sm font-bold text-slate-100">90 seconds <span className="text-[11px] font-normal text-emerald-400">(-96% time saved)</span></p>
+                <p className="text-[11px] text-slate-500 font-medium">Shift Handover Ramp-up</p>
+                <p className="text-sm font-bold text-slate-900">90 seconds <span className="text-[11px] font-semibold text-emerald-600">(-96% time saved)</span></p>
               </div>
             </div>
 
-            <div className="bg-[#0f141c] p-3 rounded-lg border border-[#232f3e] flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-md bg-[#232f3e] text-blue-400 flex items-center justify-center font-bold">
+            <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 flex items-center space-x-3">
+              <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 text-indigo-600 flex items-center justify-center font-bold shadow-xs">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-[11px] text-slate-400 font-medium">Knowledge Retention</p>
-                <p className="text-sm font-bold text-slate-100">99.4% <span className="text-[11px] font-normal text-blue-400">Zero context lost</span></p>
+                <p className="text-[11px] text-slate-500 font-medium">Knowledge Retention</p>
+                <p className="text-sm font-bold text-slate-900">99.4% <span className="text-[11px] font-semibold text-indigo-600">Zero context lost</span></p>
               </div>
             </div>
 
-            <div className="bg-[#0f141c] p-3 rounded-lg border border-[#232f3e] flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-md bg-[#232f3e] text-purple-400 flex items-center justify-center font-bold">
+            <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 flex items-center space-x-3">
+              <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 text-purple-600 flex items-center justify-center font-bold shadow-xs">
                 <Flame className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-[11px] text-slate-400 font-medium">Prevented Deadline Slippage</p>
-                <p className="text-sm font-bold text-slate-100">100% On-Track <span className="text-[11px] font-normal text-purple-400">Dynamic engine</span></p>
+                <p className="text-[11px] text-slate-500 font-medium">Prevented Deadline Slippage</p>
+                <p className="text-sm font-bold text-slate-900">100% On-Track <span className="text-[11px] font-semibold text-purple-600">Dynamic engine</span></p>
               </div>
             </div>
           </div>
@@ -192,16 +186,16 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
       {viewMode === 'comparison' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start w-full min-w-0">
           {/* Left: The 8-Step Interactive Pipeline Flow */}
-          <div className="lg:col-span-7 bg-[#161e2e] border border-[#232f3e] rounded-lg p-4 sm:p-5 shadow-sm space-y-4 min-w-0 overflow-hidden">
-            <div className="flex items-center justify-between border-b border-[#232f3e] pb-3">
+          <div className="lg:col-span-7 bg-white border border-slate-200 rounded-xl p-4 sm:p-5 shadow-xs space-y-4 min-w-0 overflow-hidden">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
-                <h3 className="text-sm font-bold text-slate-100 flex items-center space-x-2">
-                  <Layers className="w-4 h-4 text-blue-400" />
+                <h3 className="text-sm font-bold text-slate-900 flex items-center space-x-2">
+                  <Layers className="w-4 h-4 text-indigo-600" />
                   <span>The 8-Stage Workflow Breakdown Sequence</span>
                 </h3>
-                <p className="text-[11px] text-slate-400 mt-0.5">Click any step below to see why traditional workflows fail and how ApexTracker eliminates the risk</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">Click any step below to see why traditional workflows fail and how ApexTracker eliminates the risk</p>
               </div>
-              <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Protocol View</span>
+              <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider font-semibold">Protocol View</span>
             </div>
 
             <div className="space-y-2">
@@ -213,24 +207,24 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                   <div
                     key={step.stepNumber}
                     onClick={() => setSelectedStepIndex(idx)}
-                    className={`p-3 rounded-md border cursor-pointer transition-colors flex items-center justify-between group min-w-0 ${
+                    className={`p-3 rounded-lg border cursor-pointer transition-all flex items-center justify-between group min-w-0 ${
                       isSelected
                         ? isCriticalPoint
-                          ? 'bg-[#1e1720] border-rose-700/80'
-                          : 'bg-[#152336] border-blue-600/70'
-                        : 'bg-[#0f141c] border-[#232f3e] hover:border-slate-600'
+                          ? 'bg-rose-50/70 border-rose-300 shadow-xs'
+                          : 'bg-indigo-50/80 border-indigo-300 shadow-xs'
+                        : 'bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100/60'
                     }`}
                   >
                     <div className="flex items-center space-x-3 min-w-0">
                       <div
-                        className={`w-6 h-6 rounded flex items-center justify-center text-[11px] font-bold shrink-0 ${
+                        className={`w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold shrink-0 ${
                           isSelected
                             ? isCriticalPoint
-                              ? 'bg-rose-900 text-rose-100'
-                              : 'bg-blue-600 text-white'
+                              ? 'bg-rose-600 text-white'
+                              : 'bg-indigo-600 text-white'
                             : isCriticalPoint
-                            ? 'bg-rose-950/60 text-rose-300 border border-rose-800/40'
-                            : 'bg-[#232f3e] text-slate-300'
+                            ? 'bg-rose-100 text-rose-700 border border-rose-200'
+                            : 'bg-slate-200 text-slate-700'
                         }`}
                       >
                         {step.stepNumber}
@@ -238,26 +232,26 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
 
                       <div className="min-w-0">
                         <div className="flex items-center space-x-2">
-                          <span className={`text-xs font-semibold truncate ${isSelected ? 'text-white' : 'text-slate-300 group-hover:text-white'}`}>
+                          <span className={`text-xs font-semibold truncate ${isSelected ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'}`}>
                             {step.traditionalStep}
                           </span>
                           {isCriticalPoint && (
-                            <span className="text-[9px] px-1.5 py-0.2 rounded font-semibold uppercase tracking-wider bg-rose-950/50 text-rose-300 border border-rose-800/40">
+                            <span className="text-[9px] px-1.5 py-0.2 rounded font-semibold uppercase tracking-wider bg-rose-100 text-rose-700 border border-rose-200">
                               Failure Point
                             </span>
                           )}
                         </div>
-                        <p className="text-[11px] text-slate-400 truncate mt-0.5">
+                        <p className="text-[11px] text-slate-500 truncate mt-0.5">
                           {step.traditionalConsequence}
                         </p>
                       </div>
                     </div>
 
                     <div className="flex items-center space-x-2 shrink-0 ml-2">
-                      <span className="text-[10px] hidden sm:inline font-mono px-1.5 py-0.5 rounded bg-emerald-950/40 text-emerald-300 border border-emerald-800/40">
+                      <span className="text-[10px] hidden sm:inline font-mono px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium">
                         {step.apexSolutionTitle}
                       </span>
-                      <ArrowRight className={`w-3.5 h-3.5 ${isSelected ? 'text-blue-400' : 'text-slate-600'}`} />
+                      <ArrowRight className={`w-3.5 h-3.5 ${isSelected ? 'text-indigo-600' : 'text-slate-400'}`} />
                     </div>
                   </div>
                 );
@@ -267,57 +261,57 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
 
           {/* Right: Step Deep-Dive Comparison Card */}
           <div className="lg:col-span-5 space-y-4 min-w-0">
-            <div className="bg-[#161e2e] border border-[#232f3e] rounded-lg p-4 sm:p-5 shadow-sm space-y-4 overflow-hidden">
-              <div className="flex items-center justify-between border-b border-[#232f3e] pb-3">
+            <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 shadow-xs space-y-4 overflow-hidden">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                 <div className="flex items-center space-x-2">
-                  <span className="w-6 h-6 rounded bg-[#232f3e] text-blue-400 flex items-center justify-center font-bold text-xs border border-[#2d3748]">
+                  <span className="w-6 h-6 rounded-md bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-xs border border-indigo-200">
                     #{selectedStep.stepNumber}
                   </span>
                   <div>
-                    <span className="text-[10px] uppercase font-mono text-slate-400 block tracking-wider">
+                    <span className="text-[10px] uppercase font-mono text-slate-400 block tracking-wider font-semibold">
                       Stage Audit & Comparison
                     </span>
-                    <h4 className="text-sm font-bold text-slate-100">
+                    <h4 className="text-sm font-bold text-slate-900">
                       {selectedStep.traditionalStep}
                     </h4>
                   </div>
                 </div>
 
                 {selectedStep.status === 'critical' ? (
-                  <span className="px-2 py-0.5 rounded text-[10px] font-semibold uppercase bg-rose-950/50 text-rose-300 border border-rose-800/50">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-semibold uppercase bg-rose-50 text-rose-700 border border-rose-200">
                     High Vulnerability
                   </span>
                 ) : (
-                  <span className="px-2 py-0.5 rounded text-[10px] font-semibold uppercase bg-emerald-950/50 text-emerald-300 border border-emerald-800/50">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-semibold uppercase bg-emerald-50 text-emerald-700 border border-emerald-200">
                     Automated
                   </span>
                 )}
               </div>
 
               {/* What Happens Traditionally (The Breakdown) */}
-              <div className="bg-[#1a1215] border border-rose-900/50 rounded-md p-3.5 space-y-1.5">
-                <div className="flex items-center space-x-1.5 text-rose-300 font-semibold text-xs">
-                  <AlertOctagon className="w-3.5 h-3.5 text-rose-400" />
+              <div className="bg-rose-50/70 border border-rose-200 rounded-lg p-3.5 space-y-1.5">
+                <div className="flex items-center space-x-1.5 text-rose-700 font-semibold text-xs">
+                  <AlertOctagon className="w-3.5 h-3.5 text-rose-600" />
                   <span>Traditional Broken Workflow</span>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-700 leading-relaxed">
                   {selectedStep.traditionalConsequence}
                 </p>
-                <div className="pt-1 text-[10px] text-rose-400/90 font-mono">
+                <div className="pt-1 text-[10px] text-rose-600 font-mono font-medium">
                   Impact: Context friction, lost decisions, 3-5 hr dev delay
                 </div>
               </div>
 
               {/* How ApexTracker Fixes It */}
-              <div className="bg-[#0f1d19] border border-emerald-900/50 rounded-md p-3.5 space-y-1.5">
-                <div className="flex items-center space-x-1.5 text-emerald-300 font-semibold text-xs">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="bg-emerald-50/70 border border-emerald-200 rounded-lg p-3.5 space-y-1.5">
+                <div className="flex items-center space-x-1.5 text-emerald-700 font-semibold text-xs">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Apex Solution: {selectedStep.apexSolutionTitle}</span>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-700 leading-relaxed">
                   {selectedStep.apexSolutionDescription}
                 </p>
-                <div className="pt-1 text-[10px] text-emerald-400/90 font-mono">
+                <div className="pt-1 text-[10px] text-emerald-600 font-mono font-medium">
                   Result: Zero context lost • Immediate continuity • Auto-logged
                 </div>
               </div>
@@ -325,16 +319,16 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
               {/* Quick Action Button */}
               <button
                 onClick={() => setViewMode('handovers')}
-                className="w-full py-2.5 rounded-md bg-[#232f3e] hover:bg-[#2d3748] text-slate-200 border border-[#2d3748] font-semibold text-xs transition-colors flex items-center justify-center space-x-2"
+                className="w-full py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs transition-colors flex items-center justify-center space-x-2 shadow-xs"
               >
                 <span>View Live Shift Handover Console</span>
-                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
 
             {/* Why This Matters Box */}
-            <div className="bg-[#161e2e] p-3.5 rounded-lg border border-[#232f3e] text-xs text-slate-400 space-y-1.5">
-              <span className="font-semibold text-slate-200 block text-xs">Engineering Management Standard:</span>
+            <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1.5">
+              <span className="font-semibold text-slate-900 block text-xs">Engineering Management Standard:</span>
               <p className="leading-relaxed">
                 Unstructured workflows cause over 70% of project delivery slippage. Binding client specifications directly to task context and generating immutable handover summaries prevents tribal knowledge loss.
               </p>
@@ -346,20 +340,20 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
       {/* VIEW 2: ACTIVE SHIFT HANDOVERS CONSOLE */}
       {viewMode === 'handovers' && (
         <div className="space-y-4 w-full min-w-0">
-          <div className="flex flex-wrap items-center justify-between gap-3 bg-[#161e2e] p-3.5 rounded-lg border border-[#232f3e]">
+          <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
             <div>
-              <h3 className="text-sm font-bold text-slate-100 flex items-center space-x-2">
-                <GitMerge className="w-4 h-4 text-blue-400" />
+              <h3 className="text-sm font-bold text-slate-900 flex items-center space-x-2">
+                <GitMerge className="w-4 h-4 text-indigo-600" />
                 <span>Shift Handover Protocol & Pass-Down Cards</span>
               </h3>
-              <p className="text-[11px] text-slate-400 mt-0.5">
+              <p className="text-[11px] text-slate-500 mt-0.5">
                 Structured transfer of context, logged questions, client updates, and next steps between shifts.
               </p>
             </div>
 
             <button
               onClick={() => setShowCreateModal(true)}
-              className="px-3.5 py-1.5 rounded-md bg-[#ec7211] hover:bg-[#eb5f07] text-[#0f141c] font-bold text-xs transition-colors flex items-center space-x-1.5 shrink-0"
+              className="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs transition-colors flex items-center space-x-1.5 shrink-0 shadow-xs"
             >
               <PlusCircle className="w-3.5 h-3.5" />
               <span>Create Shift Handover Brief</span>
@@ -374,89 +368,89 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
               return (
                 <div
                   key={handover.id}
-                  className={`bg-[#161e2e] rounded-lg p-4 border transition-colors space-y-3.5 flex flex-col justify-between min-w-0 overflow-hidden ${
+                  className={`bg-white rounded-xl p-4 border transition-colors space-y-3.5 flex flex-col justify-between min-w-0 overflow-hidden shadow-xs ${
                     isPending
-                      ? 'border-amber-700/60'
-                      : 'border-[#232f3e]'
+                      ? 'border-amber-300 ring-1 ring-amber-300/40'
+                      : 'border-slate-200'
                   }`}
                 >
                   <div className="space-y-3 min-w-0">
                     {/* Header: Project & Shift Transition */}
                     <div className="flex items-start justify-between gap-2 min-w-0">
                       <div className="min-w-0">
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-blue-400 block font-semibold truncate">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-600 block font-semibold truncate">
                           {handover.projectName}
                         </span>
-                        <h4 className="text-sm font-bold text-slate-100 mt-0.5 truncate">
+                        <h4 className="text-sm font-bold text-slate-900 mt-0.5 truncate">
                           {handover.taskTitle}
                         </h4>
                       </div>
 
                       {isPending ? (
-                        <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-950/60 text-amber-300 border border-amber-800/50 flex items-center space-x-1 shrink-0">
-                          <Clock className="w-3 h-3" />
+                        <span className="px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider bg-amber-50 text-amber-700 border border-amber-200 flex items-center space-x-1 shrink-0">
+                          <Clock className="w-3 h-3 text-amber-600" />
                           <span>Needs Pickup</span>
                         </span>
                       ) : (
-                        <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-950/60 text-emerald-300 border border-emerald-800/50 flex items-center space-x-1 shrink-0">
-                          <Check className="w-3 h-3" />
+                        <span className="px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center space-x-1 shrink-0">
+                          <Check className="w-3 h-3 text-emerald-600" />
                           <span>Accepted</span>
                         </span>
                       )}
                     </div>
 
                     {/* Shift Routing Badges */}
-                    <div className="bg-[#0f141c] p-2.5 rounded-md border border-[#232f3e] flex items-center justify-between text-xs min-w-0">
+                    <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200 flex items-center justify-between text-xs min-w-0">
                       <div className="min-w-0">
                         <span className="text-[10px] uppercase font-bold text-slate-500 block">Outgoing Shift</span>
-                        <span className="font-semibold text-slate-200 text-xs truncate block">{handover.outgoingEmployeeName}</span>
-                        <span className="text-[10px] text-slate-400 block font-mono truncate">{handover.shiftFrom}</span>
+                        <span className="font-semibold text-slate-900 text-xs truncate block">{handover.outgoingEmployeeName}</span>
+                        <span className="text-[10px] text-slate-500 block font-mono truncate">{handover.shiftFrom}</span>
                       </div>
 
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-500 shrink-0 mx-2" />
+                      <ArrowRight className="w-3.5 h-3.5 text-slate-400 shrink-0 mx-2" />
 
                       <div className="text-right min-w-0">
                         <span className="text-[10px] uppercase font-bold text-slate-500 block">Target Shift</span>
-                        <span className="font-semibold text-blue-300 text-xs truncate block">
+                        <span className="font-semibold text-indigo-700 text-xs truncate block">
                           {handover.incomingEmployeeName || 'Any Available Engineer'}
                         </span>
-                        <span className="text-[10px] text-slate-400 block font-mono truncate">{handover.shiftTo}</span>
+                        <span className="text-[10px] text-slate-500 block font-mono truncate">{handover.shiftTo}</span>
                       </div>
                     </div>
 
                     {/* Client Requirement Context */}
                     <div className="space-y-1 min-w-0">
-                      <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider flex items-center space-x-1">
-                        <FileText className="w-3 h-3 text-blue-400" />
+                      <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider flex items-center space-x-1">
+                        <FileText className="w-3 h-3 text-indigo-600" />
                         <span>Client Requirement Specification:</span>
                       </span>
-                      <p className="text-xs text-slate-300 bg-[#0f141c] p-2.5 rounded-md border border-[#232f3e] break-words">
+                      <p className="text-xs text-slate-700 bg-slate-50 p-2.5 rounded-lg border border-slate-200 break-words">
                         {handover.clientRequirementSummary}
                       </p>
                     </div>
 
                     {/* Progress Completed & Code Touched */}
                     <div className="space-y-1 min-w-0">
-                      <span className="text-[10px] uppercase font-bold text-emerald-400 tracking-wider flex items-center space-x-1">
-                        <CheckCircle2 className="w-3 h-3" />
+                      <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider flex items-center space-x-1">
+                        <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                         <span>Work Completed in this Shift:</span>
                       </span>
-                      <p className="text-xs text-slate-300 break-words">
+                      <p className="text-xs text-slate-700 break-words">
                         {handover.progressSummary}
                       </p>
                     </div>
 
                     {/* Questions & Changes Logged (The Critical Silo Breaker) */}
                     {handover.criticalQuestionsOrChanges.length > 0 && (
-                      <div className="space-y-1 bg-[#1a1712] border border-amber-900/50 p-2.5 rounded-md min-w-0">
-                        <span className="text-[10px] uppercase font-bold text-amber-300 tracking-wider flex items-center space-x-1">
-                          <AlertTriangle className="w-3 h-3 text-amber-400" />
+                      <div className="space-y-1 bg-amber-50/80 border border-amber-200 p-2.5 rounded-lg min-w-0">
+                        <span className="text-[10px] uppercase font-bold text-amber-800 tracking-wider flex items-center space-x-1">
+                          <AlertTriangle className="w-3 h-3 text-amber-600" />
                           <span>Questions, Client Changes & Issues Logged:</span>
                         </span>
                         <ul className="space-y-1">
                           {handover.criticalQuestionsOrChanges.map((q, idx) => (
-                            <li key={idx} className="text-xs text-amber-200/90 flex items-start space-x-1.5 break-words">
-                              <span className="text-amber-400 font-bold">•</span>
+                            <li key={idx} className="text-xs text-amber-900 flex items-start space-x-1.5 break-words">
+                              <span className="text-amber-600 font-bold">•</span>
                               <span className="break-words">{q}</span>
                             </li>
                           ))}
@@ -465,41 +459,41 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                     )}
 
                     {/* Next Steps for Incoming Engineer */}
-                    <div className="bg-[#101b2a] border border-blue-900/50 p-2.5 rounded-md space-y-1 min-w-0">
-                      <span className="text-[10px] uppercase font-bold text-blue-300 tracking-wider flex items-center space-x-1">
-                        <ArrowRight className="w-3 h-3 text-blue-400" />
+                    <div className="bg-indigo-50/70 border border-indigo-200 p-2.5 rounded-lg space-y-1 min-w-0">
+                      <span className="text-[10px] uppercase font-bold text-indigo-800 tracking-wider flex items-center space-x-1">
+                        <ArrowRight className="w-3 h-3 text-indigo-600" />
                         <span>Immediate Next Steps for Incoming Shift:</span>
                       </span>
-                      <p className="text-xs text-slate-200 break-words">
+                      <p className="text-xs text-slate-700 break-words">
                         {handover.nextStepsForIncoming}
                       </p>
                     </div>
 
                     {/* Watchouts & Gotchas */}
                     {handover.gotchasAndWatchouts && (
-                      <div className="text-[11px] text-slate-400 bg-[#0f141c] p-2 rounded-md border border-[#232f3e] break-words">
-                        <strong className="text-rose-400">⚠️ Watchout:</strong> {handover.gotchasAndWatchouts}
+                      <div className="text-[11px] text-slate-700 bg-rose-50/70 p-2 rounded-lg border border-rose-200 break-words">
+                        <strong className="text-rose-700">⚠️ Watchout:</strong> {handover.gotchasAndWatchouts}
                       </div>
                     )}
                   </div>
 
                   {/* Card Footer: Action Buttons */}
-                  <div className="border-t border-[#232f3e] pt-3 flex items-center justify-between mt-3">
-                    <span className="text-[10px] text-slate-500 font-mono">
+                  <div className="border-t border-slate-100 pt-3 flex items-center justify-between mt-3">
+                    <span className="text-[10px] text-slate-400 font-mono">
                       Logged {handover.createdTime}
                     </span>
 
                     {isPending ? (
                       <button
                         onClick={() => onAcceptHandover(handover.id)}
-                        className="px-3 py-1.5 rounded-md bg-[#232f3e] hover:bg-[#2d3748] text-amber-300 border border-amber-800/60 font-semibold text-xs transition-colors flex items-center space-x-1.5"
+                        className="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-semibold text-xs transition-colors flex items-center space-x-1.5 shadow-xs"
                       >
                         <UserCheck className="w-3.5 h-3.5" />
                         <span>Claim Handover</span>
                       </button>
                     ) : (
-                      <div className="flex items-center space-x-1.5 text-xs text-emerald-400 font-medium">
-                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      <div className="flex items-center space-x-1.5 text-xs text-emerald-700 font-semibold">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                         <span>Claimed by {handover.incomingEmployeeName || currentUser.name}</span>
                       </div>
                     )}
@@ -513,21 +507,21 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
 
       {/* CREATE NEW SHIFT HANDOVER MODAL */}
       {showCreateModal && (
-        <div className="fixed inset-0 z-50 bg-[#000000]/70 flex items-center justify-center p-4">
-          <div className="bg-[#161e2e] border border-[#232f3e] rounded-lg max-w-2xl w-full p-5 sm:p-6 shadow-xl space-y-4 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-[#232f3e] pb-3">
+        <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 rounded-xl max-w-2xl w-full p-5 sm:p-6 shadow-xl space-y-4 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
-                <span className="text-[10px] uppercase font-mono text-slate-400 block tracking-wider">
+                <span className="text-[10px] uppercase font-mono text-slate-400 block tracking-wider font-semibold">
                   Prevent Knowledge Loss
                 </span>
-                <h3 className="text-base font-bold text-slate-100 flex items-center space-x-2">
-                  <GitMerge className="w-4 h-4 text-blue-400" />
+                <h3 className="text-base font-bold text-slate-900 flex items-center space-x-2">
+                  <GitMerge className="w-4 h-4 text-indigo-600" />
                   <span>Create Shift Handover & Pass-Down Card</span>
                 </h3>
               </div>
               <button
                 onClick={() => setShowCreateModal(false)}
-                className="text-slate-400 hover:text-white px-2 py-1 rounded bg-[#0f141c] border border-[#232f3e] text-xs"
+                className="text-slate-400 hover:text-slate-600 px-2 py-1 rounded-md bg-slate-50 border border-slate-200 text-xs font-bold"
               >
                 ✕
               </button>
@@ -536,18 +530,18 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
             <form onSubmit={handleFormSubmit} className="space-y-3.5">
               {/* Task Selector */}
               <div>
-                <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-700 mb-1">
                   Active Task Being Handed Over *
                 </label>
                 <select
                   required
                   value={formTaskId}
                   onChange={(e) => setFormTaskId(e.target.value)}
-                  className="w-full bg-[#0f141c] border border-[#232f3e] rounded-md px-3 py-2 text-xs text-slate-200 outline-none cursor-pointer focus:border-blue-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-900 outline-none cursor-pointer focus:border-indigo-500 focus:bg-white"
                 >
                   <option value="">Select task...</option>
                   {activeProject.tasks.map((task) => (
-                    <option key={task.id} value={task.id} className="bg-[#161e2e] text-slate-200">
+                    <option key={task.id} value={task.id} className="bg-white text-slate-800">
                       [{task.status}] {task.title} ({task.estimatedHours}h)
                     </option>
                   ))}
@@ -557,7 +551,7 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
               {/* Shift Transition Times */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                  <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-700 mb-1">
                     Your Current Shift *
                   </label>
                   <input
@@ -566,11 +560,11 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                     value={formShiftFrom}
                     onChange={(e) => setFormShiftFrom(e.target.value)}
                     placeholder="e.g. Morning Shift (09:00 - 17:00)"
-                    className="w-full bg-[#0f141c] border border-[#232f3e] rounded-md px-3 py-2 text-xs text-slate-200 outline-none focus:border-blue-500"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-900 outline-none focus:border-indigo-500 focus:bg-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                  <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-700 mb-1">
                     Next Shift Taking Over *
                   </label>
                   <input
@@ -579,14 +573,14 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                     value={formShiftTo}
                     onChange={(e) => setFormShiftTo(e.target.value)}
                     placeholder="e.g. Evening Shift (17:00 - 01:00)"
-                    className="w-full bg-[#0f141c] border border-[#232f3e] rounded-md px-3 py-2 text-xs text-slate-200 outline-none focus:border-blue-500"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-900 outline-none focus:border-indigo-500 focus:bg-white"
                   />
                 </div>
               </div>
 
               {/* Client Requirement Context */}
               <div>
-                <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-700 mb-1">
                   Client Requirement / Core Acceptance Criteria *
                 </label>
                 <textarea
@@ -595,13 +589,13 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                   value={formReqSummary}
                   onChange={(e) => setFormReqSummary(e.target.value)}
                   placeholder="State the exact client requirement so incoming dev doesn't have to guess or check old emails..."
-                  className="w-full bg-[#0f141c] border border-[#232f3e] rounded-md p-2.5 text-xs text-slate-200 outline-none focus:border-blue-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 outline-none focus:border-indigo-500 focus:bg-white"
                 />
               </div>
 
               {/* Work Completed */}
               <div>
-                <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-700 mb-1">
                   What Did You Complete in this Shift? *
                 </label>
                 <textarea
@@ -610,13 +604,13 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                   value={formProgress}
                   onChange={(e) => setFormProgress(e.target.value)}
                   placeholder="List code files changed, tests passed, or progress made..."
-                  className="w-full bg-[#0f141c] border border-[#232f3e] rounded-md p-2.5 text-xs text-slate-200 outline-none focus:border-blue-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 outline-none focus:border-indigo-500 focus:bg-white"
                 />
               </div>
 
               {/* Critical Questions / Client Changes (The Silo Breaker) */}
               <div>
-                <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-700 mb-1">
                   Questions, Client Adjustments, or Blockers Encountered (1 per line)
                 </label>
                 <textarea
@@ -624,14 +618,14 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                   value={formQuestions}
                   onChange={(e) => setFormQuestions(e.target.value)}
                   placeholder="e.g. Client changed required video bitrate to 720p.&#10;Database migration needs --skip-seed flag."
-                  className="w-full bg-[#0f141c] border border-[#232f3e] rounded-md p-2.5 text-xs text-slate-200 outline-none focus:border-blue-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 outline-none focus:border-indigo-500 focus:bg-white"
                 />
               </div>
 
               {/* Next Steps for Incoming Dev */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                  <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-700 mb-1">
                     Next Action for Next Engineer *
                   </label>
                   <textarea
@@ -640,12 +634,12 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                     value={formNextSteps}
                     onChange={(e) => setFormNextSteps(e.target.value)}
                     placeholder="Exact place where they should start coding..."
-                    className="w-full bg-[#0f141c] border border-[#232f3e] rounded-md p-2.5 text-xs text-slate-200 outline-none focus:border-blue-500"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 outline-none focus:border-indigo-500 focus:bg-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                  <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-700 mb-1">
                     Watchout / Gotchas
                   </label>
                   <textarea
@@ -653,22 +647,22 @@ export const WorkflowContinuityHub: React.FC<WorkflowContinuityHubProps> = ({
                     value={formGotchas}
                     onChange={(e) => setFormGotchas(e.target.value)}
                     placeholder="Things that could trip them up..."
-                    className="w-full bg-[#0f141c] border border-[#232f3e] rounded-md p-2.5 text-xs text-slate-200 outline-none focus:border-blue-500"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 outline-none focus:border-indigo-500 focus:bg-white"
                   />
                 </div>
               </div>
 
-              <div className="flex items-center justify-end space-x-2 pt-3 border-t border-[#232f3e]">
+              <div className="flex items-center justify-end space-x-2 pt-3 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => setShowCreateModal(false)}
-                  className="px-3 py-1.5 rounded-md bg-[#0f141c] hover:bg-[#232f3e] text-slate-300 border border-[#232f3e] font-semibold text-xs"
+                  className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-1.5 rounded-md bg-[#ec7211] hover:bg-[#eb5f07] text-[#0f141c] font-bold text-xs flex items-center space-x-1.5"
+                  className="px-4 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs flex items-center space-x-1.5 shadow-xs transition-colors"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Publish Shift Handover Card</span>

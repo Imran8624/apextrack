@@ -156,38 +156,35 @@ export const LearningCertificationHub: React.FC<LearningCertificationHubProps> =
   return (
     <div className="space-y-8 animate-in fade-in duration-300">
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950/80 to-purple-950/80 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="bg-white border border-slate-200 rounded-xl p-5 sm:p-6 shadow-xs relative overflow-hidden">
+        <div className="relative z-10 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="space-y-1">
               <div className="flex items-center space-x-2">
-                <span className="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 flex items-center space-x-1.5">
-                  <GraduationCap className="w-4 h-4 text-indigo-400" />
+                <span className="px-2.5 py-0.5 rounded-md text-xs font-semibold uppercase tracking-wider bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center space-x-1.5">
+                  <GraduationCap className="w-4 h-4 text-indigo-600" />
                   <span>Learning & Certification Engine (LCE)</span>
                 </span>
                 {isElevated && (
-                  <span className="px-3 py-1 rounded-full text-xs font-mono bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center space-x-1">
-                    <Shield className="w-3.5 h-3.5 text-amber-400" />
+                  <span className="px-2.5 py-0.5 rounded-md text-xs font-mono bg-amber-50 text-amber-800 border border-amber-200 flex items-center space-x-1">
+                    <Shield className="w-3.5 h-3.5 text-amber-600" />
                     <span>Elevated Access: {currentRole}</span>
                   </span>
                 )}
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
                 Enterprise Technical Training, Assessments & Verifiable Credentials
               </h2>
             </div>
 
             {/* Hub Tab Switcher */}
-            <div className="flex flex-wrap items-center gap-1.5 bg-slate-950 p-1.5 rounded-2xl border border-slate-800">
+            <div className="flex flex-wrap items-center gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200">
               <button
                 onClick={() => setActiveTab('my-courses')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 ${
+                className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center space-x-1.5 ${
                   activeTab === 'my-courses'
-                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-white text-indigo-700 border border-slate-200 shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <BookOpen className="w-3.5 h-3.5" />
@@ -198,10 +195,10 @@ export const LearningCertificationHub: React.FC<LearningCertificationHubProps> =
                 <>
                   <button
                     onClick={() => setActiveTab('compliance')}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 ${
+                    className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center space-x-1.5 ${
                       activeTab === 'compliance'
-                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
-                        : 'text-slate-400 hover:text-slate-200'
+                        ? 'bg-white text-indigo-700 border border-slate-200 shadow-xs'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
                     <Building2 className="w-3.5 h-3.5" />
@@ -210,10 +207,10 @@ export const LearningCertificationHub: React.FC<LearningCertificationHubProps> =
 
                   <button
                     onClick={() => setActiveTab('ledger')}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 ${
+                    className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center space-x-1.5 ${
                       activeTab === 'ledger'
-                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
-                        : 'text-slate-400 hover:text-slate-200'
+                        ? 'bg-white text-indigo-700 border border-slate-200 shadow-xs'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
                     <Award className="w-3.5 h-3.5" />
@@ -224,10 +221,10 @@ export const LearningCertificationHub: React.FC<LearningCertificationHubProps> =
 
               <button
                 onClick={() => setActiveTab('prerequisites')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 ${
+                className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center space-x-1.5 ${
                   activeTab === 'prerequisites'
-                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-white text-indigo-700 border border-slate-200 shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <Lock className="w-3.5 h-3.5" />
@@ -236,27 +233,27 @@ export const LearningCertificationHub: React.FC<LearningCertificationHubProps> =
             </div>
           </div>
 
-          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-4xl">
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-4xl">
             ApexTracker seamlessly links engineering certifications directly to project task assignments and dynamic deadline calculations. Team members certify their technical expertise through real assessments, generating verifiable certificates while protecting project velocity against uncertified skill gaps.
           </p>
 
           {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-1">
-            <div className="bg-slate-950/80 p-3.5 rounded-2xl border border-slate-800">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+            <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
               <span className="text-[10px] uppercase font-bold text-slate-500 block">Available Courses</span>
-              <span className="text-xl font-black text-white">{courses.length} Standardized</span>
+              <span className="text-lg font-bold text-slate-900">{courses.length} Standardized</span>
             </div>
-            <div className="bg-slate-950/80 p-3.5 rounded-2xl border border-slate-800">
-              <span className="text-[10px] uppercase font-bold text-emerald-400 block">Organization Compliance</span>
-              <span className="text-xl font-black text-emerald-400">{complianceRate}% Cleared</span>
+            <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+              <span className="text-[10px] uppercase font-bold text-emerald-700 block">Organization Compliance</span>
+              <span className="text-lg font-bold text-emerald-700">{complianceRate}% Cleared</span>
             </div>
-            <div className="bg-slate-950/80 p-3.5 rounded-2xl border border-slate-800">
-              <span className="text-[10px] uppercase font-bold text-indigo-400 block">Verifiable Certificates</span>
-              <span className="text-xl font-black text-indigo-300">{certificates.length} Issued</span>
+            <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+              <span className="text-[10px] uppercase font-bold text-indigo-700 block">Verifiable Certificates</span>
+              <span className="text-lg font-bold text-indigo-700">{certificates.length} Issued</span>
             </div>
-            <div className="bg-slate-950/80 p-3.5 rounded-2xl border border-slate-800">
-              <span className="text-[10px] uppercase font-bold text-rose-400 block">Stalled / Retake Needed</span>
-              <span className="text-xl font-black text-rose-400">{failedEnrollments} Action Required</span>
+            <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+              <span className="text-[10px] uppercase font-bold text-rose-700 block">Stalled / Retake Needed</span>
+              <span className="text-lg font-bold text-rose-700">{failedEnrollments} Action Required</span>
             </div>
           </div>
         </div>
