@@ -85,8 +85,8 @@ export const AdminRegistrationHero: React.FC<AdminRegistrationHeroProps> = ({
       </button>
 
       {/* Glow Effects */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-0 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl -z-0 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl z-0 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl z-0 pointer-events-none" />
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left Column: Welcome & Session Identity Info */}
@@ -148,7 +148,7 @@ export const AdminRegistrationHero: React.FC<AdminRegistrationHeroProps> = ({
 
         {/* Right Column: 1-Click Fast Launch Action Cards */}
         <div className="lg:col-span-5 space-y-3 bg-slate-950/90 p-5 rounded-2xl border border-slate-800 shadow-2xl">
-          <span className="text-xs font-extrabold uppercase tracking-wider text-amber-400 block flex items-center space-x-1.5">
+          <span className="text-xs font-extrabold uppercase tracking-wider text-amber-400 flex items-center space-x-1.5">
             <Zap className="w-4 h-4 text-amber-400" />
             <span>1st-Page Fast Role Switch & Registration</span>
           </span>
