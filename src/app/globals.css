@@ -5,7 +5,7 @@ html,
 body {
   max-width: 100%;
   overflow-x: hidden;
-  background-color: #f8fafc;
+  background-color: #eedb85;
   color: #0f172a;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
@@ -36,16 +36,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #78b6f3;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #1db58f;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #87b7fa;
 }
 
 /* Hide scrollbar utility for horizontal tab bars */
